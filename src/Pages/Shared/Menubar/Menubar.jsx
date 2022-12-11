@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { Dropdown, DropdownButton, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { FaWallet } from "react-icons/fa";
 import Container from 'react-bootstrap/Container';
@@ -28,21 +28,19 @@ const Menubar = () => {
               navbarScroll
             >
             </Nav>
-            <Dropdown>
-              <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
-                Dropdown Button
-              </Dropdown.Toggle>
+            <Form.Select className='rounded-1 ' style={{ width: '20%' }}  aria-label="Default select example">
+              <option><img src="" alt="" /> Ethereum Rinkeby</option>
+              <option value="1"> Arbitrum Rinkeby</option>
+              <option value="2">Avalanche Fuji</option>
+              <option value="3">BNB Chain Testnet</option>
+            </Form.Select>
 
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
             <>
-              <Button variant="outline-secondary" onClick={() => setModalShow(true)}>
+              <Button className="rounded-1 wallet-button ms-2 fw-semibold"
+                variant="outline-secondary ml-2" onClick={() => setModalShow(true)}>
                 <FaWallet></FaWallet> Connect your wallet
               </Button>
+
 
               <NavbarModal
                 show={modalShow}
@@ -51,7 +49,7 @@ const Menubar = () => {
 
               </NavbarModal>
             </>
-            <DropdownButton id="dropdown-item-button" variant='none' title={<ImUser></ImUser>}>
+            <DropdownButton  className='ms-2' id="dropdown-item-button" variant='none' title={<ImUser></ImUser>}>
               <Dropdown.ItemText></Dropdown.ItemText>
               <Dropdown.Item as="button"><Link to='login' className='text-secondary text-decoration-none font '>Log In</Link></Dropdown.Item>
               <Dropdown.Item as="button"><Link to='singup' className='text-secondary text-decoration-none font '>Sing Up</Link></Dropdown.Item>

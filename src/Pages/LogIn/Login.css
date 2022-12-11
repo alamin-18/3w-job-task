@@ -1,2 +1,28 @@
 
-
+.form{
+    background-color: white;
+    width: 476px;
+    padding: 15px;
+}
+.input-email{
+    width: 100%;
+    border: 1px;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 10px;
+    
+}
+input:focus, input.input-email:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+.input-btn{
+   background-color: blueviolet;
+   padding: 10px 5px;
+   border: none;
+   color: white;
+   width: 100%;
+   font-weight: 700;
+}
