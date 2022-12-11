@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Form, } from 'react-bootstrap';
+import { Form, } from 'react-bootstrap';
 
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import { HiExclamationTriangle } from "react-icons/hi2";
 import './MainSection.css'
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -9,25 +9,26 @@ const MainSection = () => {
     const onChange = (value) => {
         console.log("Captcha value:", value);
     }
-    // const [checked, setChecked] = useState(false);
-    // const [radioValue, setRadioValue] = useState('1');
-
-    // const radios = [
-    //     { name: 'Active', value: '1' },
-    //     { name: 'Radio', value: '2' },
-    //     { name: 'Radio', value: '3' },
-    // ];
+    const navActive = ({ isActive }) => {
+        return {
+            fontWeight: isActive ? '500' : 'normal',
+            backgroundColor: isActive ? "#0000ff" : '#f5f7fd',
+            padding: "8px 10px",
+            textDecoration: 'none',
+            color: isActive ? 'white' : 'black'
+        }
+    }
     return (
         <div className='bg-main p-4'>
             <div className='container'>
                 <h1 className='text-color'>Request testnet LINK</h1>
-                <p className='w-50'> Get testnet LINK for an account on one of the supported blockchain testnets so you can create and test your own oracle and Chainlinked smart contract</p>
+                <p className='w-50 header-text'> Get testnet LINK for an account on one of the supported blockchain testnets so you can create and test your own oracle and Chainlinked smart contract</p>
                 <div className='bg-white p-4 '>
-                    <p className='main-section-text p-2'><HiExclamationTriangle></HiExclamationTriangle>Your wallet is connected to Ethereum Kovan, so you are requesting Ethereum Kovan Link/ETH.</p>
+                    <p className='main-section-text p-2'><HiExclamationTriangle></HiExclamationTriangle>Your wallet is connected to <strong>Ethereum Kovan</strong>, so you are requesting <strong>Ethereum Kovan</strong> Link/ETH.</p>
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label className='text-color'>Wallet Address</Form.Label>
-                            <Form.Control style={{ width: '35%' }} type="email" placeholder="Wallet Address" />
+                            <Form.Control style={{ width: '37%' }} type="email" placeholder="Wallet Address" />
                         </Form.Group>
 
                         <div className='d-flex'>
@@ -51,25 +52,25 @@ const MainSection = () => {
                                         placeholder="0.5 ETH"
                                     />
                                 </div>
-                        </Form.Group>
-                </div>
-                <ReCAPTCHA
-                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                    onChange={onChange}
-                />,
-                <button className='btn-send py-2 px-3 mb-2'>Send Request</button>
+                            </Form.Group>
+                        </div>
+                        <ReCAPTCHA
+                            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                            onChange={onChange}
+                        />,
+                        <button className='btn-send py-2 px-3 mb-2'>Send Request</button>
 
-            </Form>
-            <div>
-                <h4>Request History</h4>
-                <div>
-                    <Button variant='outline-primary'><Link to='eth'>ETH Transaction History</Link></Button>
-                    <Button variant='outline-primary'> <Link to='testlink'>TestLink Transaction History</Link ></Button>
-                </div>
-                <Outlet></Outlet>
+                    </Form>
+                    <div className='mt-3'> 
+                        <h5 className='mb-4'>Request History</h5>
+                        <div>
+                            <NavLink style={navActive} to='eth'>ETH Transaction History</NavLink>
+                            <NavLink style={navActive} className='ms-2' to='testlink'>TestLink Transaction History</NavLink >
+                        </div>
+                        <Outlet></Outlet>
 
-            </div>
-        </div>
+                    </div>
+                </div>
             </div >
 
         </div >

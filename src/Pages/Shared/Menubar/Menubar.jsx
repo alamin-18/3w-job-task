@@ -19,7 +19,7 @@ const Menubar = () => {
     <div className='container'>
       <Navbar expand="lg">
         <Container fluid>
-          <Navbar.Brand href="/" className='text-parple'>Faucets</Navbar.Brand>
+          <Link to='/' className='text-parple text-decoration-none fw-bold fs-2'>Faucets</Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -28,7 +28,7 @@ const Menubar = () => {
               navbarScroll
             >
             </Nav>
-            <Form.Select className='rounded-1 ' style={{ width: '20%' }}  aria-label="Default select example">
+            <Form.Select className='rounded-1 ' style={{ width: '20%' }} aria-label="Default select example">
               <option><img src="" alt="" /> Ethereum Rinkeby</option>
               <option value="1"> Arbitrum Rinkeby</option>
               <option value="2">Avalanche Fuji</option>
@@ -49,7 +49,7 @@ const Menubar = () => {
 
               </NavbarModal>
             </>
-            <DropdownButton  className='ms-2' id="dropdown-item-button" variant='none' title={<ImUser></ImUser>}>
+            <DropdownButton className='ms-2' id="dropdown-item-button" variant='none' title={<ImUser></ImUser>}>
               <Dropdown.ItemText></Dropdown.ItemText>
               <Dropdown.Item as="button"><Link to='login' className='text-secondary text-decoration-none font '>Log In</Link></Dropdown.Item>
               <Dropdown.Item as="button"><Link to='singup' className='text-secondary text-decoration-none font '>Sing Up</Link></Dropdown.Item>

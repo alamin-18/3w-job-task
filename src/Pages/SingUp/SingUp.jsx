@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGoogle, FaFacebookSquare, FaInstagram } from "react-icons/fa";
+import { GoogleLogin } from '@react-oauth/google';
 const SingUp = () => {
+
     return (
-        <div className=' p-5 bg-main d-flex align-items-center justify-content-sm-center '>
+        <div style={{ height: "100vh" }} className='bg-main d-flex align-items-center justify-content-sm-center '>
             <div className='form p-5'>
                 <form action="" >
                     <label htmlFor="">Enter your Email</label>
@@ -19,9 +20,14 @@ const SingUp = () => {
                 <p className='text-center mt-2'>Already have an account?  <Link to='../login' className='text-color text-decoration-none '>Login</Link></p>
                 <h3 className='text-center mt-2'>Or</h3>
                 <div className='d-flex justify-content-sm-center gap-4 font-2'>
-                    <span><FaGoogle></FaGoogle> </span>
-                    <span><FaFacebookSquare></FaFacebookSquare></span>
-                    <span><FaInstagram></FaInstagram></span>
+                    <GoogleLogin
+                        onSuccess={credentialResponse => {
+                            console.log(credentialResponse);
+                        }}
+                        onError={() => {
+                            console.log('Login Failed');
+                        }}
+                    />;
                 </div>
             </div>
         </div>
